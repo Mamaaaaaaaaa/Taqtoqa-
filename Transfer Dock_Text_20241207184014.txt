@@ -1,0 +1,109 @@
+<meta name='viewport' content='width=device-width, initial-scale=1'/><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نموذج السيرة الذاتية</title>
+    <style>
+        body {
+            font-family: "Arial", sans-serif;
+            background: linear-gradient(135deg, #f3e5ab, #e1bee7);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            color: #333;
+        }
+
+        .form-container {
+            background: #fff;
+            padding: 20px 30px;
+            border-radius: 12px;
+            box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            animation: fadeIn 1.2s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #6a1b9a;
+        }
+
+        input, select, button {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        button {
+            background: #6a1b9a;
+            color: #fff;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #9c27b0;
+        }
+
+        .result {
+            margin-top: 20px;
+            font-size: 18px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="form-container">
+        <h1>نموذج السيرة الذاتية</h1>
+        <form id="cvForm">
+            <input type="text" id="name" placeholder="الاسم" required>
+            <input type="number" id="age" placeholder="العمر" required>
+            <select id="favoriteGame" required>
+                <option value="" disabled selected>اختر لعبتك المفضلة</option>
+                <option value="فيفا">فيفا</option>
+                <option value="فورتنايت">فورتنايت</option>
+                <option value="كول أوف ديوتي">كول أوف ديوتي</option>
+                <option value="ماينكرافت">ماينكرافت</option>
+            </select>
+            <button type="button" onclick="submitForm()">إرسال</button>
+        </form>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const age = document.getElementById('age').value;
+            const favoriteGame = document.getElementById('favoriteGame').value;
+
+            if (name && age && favoriteGame) {
+                const resultDiv = document.getElementById('result');
+                resultDiv.innerHTML = `
+                    <p>مرحبا <strong>${name}</strong>!</p>
+                    <p>عمرك: <strong>${age}</strong> سنة.</p>
+                    <p>لعبتك المفضلة: <strong>${favoriteGame}</strong>.</p>
+                `;
+            } else {
+                alert('يرجى تعبئة جميع الحقول!');
+            }
+        }
+    </script>
+</body>
+</html>
